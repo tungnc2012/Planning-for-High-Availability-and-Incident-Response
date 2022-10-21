@@ -33,13 +33,13 @@ Clone the appropriate git repo with the starter code. There will be 2 folders. Z
     ```
     <!-- - Replace the owner field in `_data.tf` with your Amazon owner ID assigned on the AMI (you can get this in the console by going to EC2 - AMIs and selecting the Owned by me at the top filter) -->
     - Take note of that AMI ID the script just output. Copy the AMI to `us-east-2` and `us-west-1`:
-        - `aws ec2 copy-image --source-image-id ami-0aff015c46bf3cf86 --source-region us-east-1 --region us-east-2 --name "udacity-tungdt"`
-        - `aws ec2 copy-image --source-image-id ami-0aff015c46bf3cf86 --source-region us-east-1 --region us-west-1 --name "udacity-tungdt"`
+        - `aws ec2 copy-image --source-image-id ami-084ed901dfbf303b9 --source-region us-east-1 --region us-east-2 --name "udacity-tungdt"`
+        - `aws ec2 copy-image --source-image-id ami-084ed901dfbf303b9 --source-region us-east-1 --region us-west-1 --name "udacity-tungdt"`
 
     - Make note of the ami output from the above 2 commands. You'll need to put this in the `ec2.tf` file for `zone1` for `us-east-2` and in `ec2.tf` file for `zone2` for `us-west-1` respectively
 
-    `zone1-us-east-2 ami:    ami-0d575ff989549b40a   s3: udacity-tf-tungdt         ssh_key: udacity-east`   
-    `zone2-us-west-1 ami:    ami-06a0547fd0c320707   s3: udacity-tf-tungdt-west    ssh_key: udacity-east`
+    `zone1-us-east-2 ami:    ami-05284b0d057290fb3   s3: udacity-tf-tungdt-east-2         ssh_key: udacity-east-2`   
+    `zone2-us-west-1 ami:    ami-082aea922de503aff   s3: udacity-tf-tungdt-west-1    ssh_key: udacity-west-1`
 
     <!-- - Set your aws cli config to `us-east-2` -->
 
@@ -87,7 +87,7 @@ Clone the appropriate git repo with the starter code. There will be 2 folders. Z
    - `aws eks --region us-east-2 update-kubeconfig --name udacity-cluster`
    - Change kubernetes context to the new AWS cluster
      - `kubectl config use-context <cluster_name>`
-       - e.g ` arn:aws:eks:us-east-2:139802095464:cluster/udacity-cluster`
+       - e.g ` arn:aws:eks:us-east-2:931353196095:cluster/udacity-cluster`
    - Confirm with: `kubectl get pods --all-namespaces`
    - Then run `kubectl create namespace monitoring`
    <!-- - Change context to `udacity` namespace
