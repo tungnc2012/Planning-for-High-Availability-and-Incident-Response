@@ -14,10 +14,3 @@ variable "instance_type" {
 variable "tags" {
    default = {}
  }
-  
-variable "name" {}
-variable "aws_ami" {}
-variable "account" {}
-variable "private_subnet_ids" {}
-variable "public_subnet_ids" {}
-variable "vpc_id" {}
