@@ -36,6 +36,7 @@ resource "aws_rds_cluster" "udacity_cluster-s" {
   db_cluster_parameter_group_name = aws_rds_cluster_parameter_group.cluster_pg-s.name
   vpc_security_group_ids   = [aws_security_group.db_sg_2.id]
   db_subnet_group_name     = aws_db_subnet_group.udacity_db_subnet_group.name
+  replication_source_identifier = var.primary_db_cluster_arn
   engine_mode              = "provisioned"
   engine_version           = "5.6.mysql_aurora.1.22.3"
   backup_retention_period = 5   
