@@ -15,7 +15,7 @@ Zone2: Secondary site in us-west-1
 | RDS Cluster | Database for web app | t3.medium | 2 nodes (writer+reader) | replicated with DR |
 | RDS Cluster (DR) | Database for web app | t3.medium | 2 nodes (writer+reader) | replicated with DC |
 | Application Load Balancer    | Load balance traffic |              | 1           | deploy to DR              |
-| Grafana and Prometheus | monitoring platform               |              | 1           | deploy to DR              |
+| Grafana and Prometheus | Monitoring and visual graph               |              | 1           | deploy to DR              |
 
 ### Descriptions
 
