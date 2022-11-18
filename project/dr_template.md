@@ -1,8 +1,8 @@
 # Infrastructure
 ## AWS Zones
-Zone1: Primary site in us-east-2 
+Zone1: Primary site in us-east-2: us-east-2a, us-east-2b, us-east-2c
 
-Zone2: Secondary site in us-west-1
+Zone2: Secondary site in us-west-1: us-west-1a, us-west-1b
 ## Servers and Clusters
 ### Table 1.1 Summary
 | Asset      | Purpose           | Size                                                                   | Qty                                                             | DR                                                                                                           |
@@ -16,6 +16,7 @@ Zone2: Secondary site in us-west-1
 | RDS Cluster (DR) | Database for web app | t3.medium | 2 nodes (writer+reader) | replicated with DC |
 | Application Load Balancer    | Load balance traffic |              | 1           | deploy to DR              |
 | Grafana and Prometheus | Monitoring and visual graph               |              | 1           | deploy to DR              |
+| VPC                       | Virtual Private network                   |             | 2  | Multiple zones per VPC, one VPC in us-east-2 and other one in us-west-1 for DR |
 
 ### Descriptions
 
@@ -26,6 +27,7 @@ Zone2: Secondary site in us-west-1
 - Grafana and Prometheus for the web application deployed into the Kubernetes cluster
 - RDS running on 3 nodes for the website, nodes deployed to different AZ. Database is replicated to a second zone2 (us-west-1) for DR
 - RDS backups stored in S3 for recovery, perform daily backup, backup retention window is 5 days.
+- VPC to separate resource and divine to small network, use VPC to launch resources
 
 ## DR Plan
 ### Pre-Steps:
