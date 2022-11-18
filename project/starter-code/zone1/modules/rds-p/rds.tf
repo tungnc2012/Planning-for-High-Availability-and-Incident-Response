@@ -48,12 +48,14 @@ resource "aws_rds_cluster" "udacity_cluster" {
   backup_retention_period = 5
   storage_encrypted        = false
   depends_on = [aws_rds_cluster_parameter_group.cluster_pg]
+  
   lifecycle {
     ignore_changes = [
       availability_zones,
     ]
   }  
 }
+
 output "db_cluster_arn" {
   value = aws_rds_cluster.udacity_cluster.arn
 }
@@ -68,6 +70,7 @@ resource "aws_rds_cluster_instance" "udacity_instance" {
   cluster_identifier   = aws_rds_cluster.udacity_cluster.id
   instance_class       = "db.t2.small"
   db_subnet_group_name = aws_db_subnet_group.udacity_db_subnet_group.name
+  
   lifecycle {
     ignore_changes = [
       cluster_identifier,
