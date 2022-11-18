@@ -31,9 +31,9 @@ Zone2: Secondary site in us-west-1
 ### Pre-Steps:
 Using Terraform to build 2 zones (us-east-2 and us-west-1)
 Both zones will have same config.
-We zones 1 down, will redirect to zones 2 with update route53.
-## Steps:
+If zone 1 down, we will redirect to zone 2 with update record in Route 53(it is optional)
 
+## Steps:
 You won't actually perform these steps, but write out what you would do to "fail-over" your application and database cluster to the other region. Think about all the pieces that were setup and how you would use those in the other region
 Using Route53 to re-route traffic to DR zone.
 With health check, when zone 1 down, route 53 will re-direct traffic from zone 1 to zone 2.
