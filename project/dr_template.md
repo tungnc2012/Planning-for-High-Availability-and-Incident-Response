@@ -1,6 +1,7 @@
 # Infrastructure
 ## AWS Zones
 Zone1: Primary site in us-east-2 
+
 Zone2: Secondary site in us-west-1
 ## Servers and Clusters
 ### Table 1.1 Summary
